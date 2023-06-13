@@ -1,10 +1,10 @@
-import { useVideoControls } from "@/hooks/useVideoControls   ";
+import { useVideoControls } from "@/hooks/useVideoControls";
 
 export function HomeBanner() {
   const { videoRef, toggleVideo } = useVideoControls();
 
   return (
-    <div className="w-100 max-h-100 bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+    <div className="w-90 max-h-90 bg-gray-900 rounded-lg overflow-hidden shadow-lg mx-6 my-2">
       <div className="relative h-0 pb-[56.25%]">
         <video
           ref={videoRef}
