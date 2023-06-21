@@ -1,5 +1,6 @@
-"use client";
 
+"use client";
+import { Header } from "@/components/Header/Header";
 import { HomeItem } from "@/components/Home/HomeItem";
 import { HomeBanner } from "@/components/Home/HomeBanner";
 import { HomeMoreItem } from "@/components/Home/HomeMoreItem/HomeMoreItem";
@@ -32,7 +33,7 @@ const items = [
 export default function Home() {
   return (
     <div>
-      Home
+      <Header />
       <HomeBanner />
       <HomeItem items={items} />
       <HomeMoreItem />
