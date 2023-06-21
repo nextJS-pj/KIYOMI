@@ -8,14 +8,15 @@ module.exports = {
       },
 
       screens: {
-        sm: "480px",
-        md: "481px",
-        lg: "1025px",
+        mobile: "420px",
+        tablet: "640px",
+        laptop: "1024px",
+        desktop: "1280px",
       },
 
       colors: {
         primary: "#1F2937",
-        secondary: "#d4d4d4",
+        secondary: "#a1a1a1",
       },
     },
   },
