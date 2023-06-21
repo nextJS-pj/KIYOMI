@@ -1,6 +1,8 @@
 "use client";
 import { Header } from "@/components/Header/Header";
+import { HomeItem } from "@/components/Home/HomeItem";
 import { HomeBanner } from "@/components/Home/HomeBanner";
+import { HomeMoreItem } from "@/components/Home/HomeMoreItem/HomeMoreItem";
 
 // 더미데이터 -------------------------------------------------------------------------------------
 const items = [
@@ -32,6 +34,8 @@ export default function Home() {
     <div>
       <Header />
       <HomeBanner />
+      <HomeItem items={items} />
+      <HomeMoreItem />
     </div>
   );
 }
