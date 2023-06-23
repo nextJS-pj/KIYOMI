@@ -8,10 +8,9 @@ module.exports = {
       },
 
       screens: {
-        mobile: "420px",
-        tablet: "640px",
-        laptop: "1024px",
-        desktop: "1280px",
+        sm: { max: "480px" },
+        md: { min: "481px", max: "1024px" },
+        lg: { min: "1025px" },
       },
 
       colors: {
