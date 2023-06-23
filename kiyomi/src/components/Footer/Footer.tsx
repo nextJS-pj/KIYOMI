@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export function Footer() {
   return (
-    <footer className="w-full mt-8">
+    <footer className="w-full mt-8 bg-slate-50 p-3">
       <h2 className="text-3xl mx-10">KIYOMI</h2>
       <nav className="flex flex-col items-center justify-center mt-4 tablet:flex-row tablet:justify-between ">
         <ul className="flex space-x-3 mx-10 tablet:mb-3 tablet:text-sm mobile:text-sm mobile:mb-4">
