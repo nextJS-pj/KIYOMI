@@ -4,6 +4,7 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
+import { AccordionButton } from "../Button/AccordionButton";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,23 +28,72 @@ export function Navbar() {
           <GiHamburgerMenu />
         </button>
         {isMenuOpen && (
-          <div className="transition-all duration-300 ease-in-out absolute top-0 right-0 w-full h-screen bg-white z-10 text-black text-[20px] font-bold">
-            <span className="">로그인</span>
-            <AiOutlineRight />
-            <button onClick={handleClick}>
+          <div className="transition-all duration-300 ease-in-out absolute top-0 right-0 w-full h-screen px-5  bg-white z-10 text-black text-[20px] font-bold">
+            <button className="flex items-center py-6">
+              <span className="">로그인</span>
+              <AiOutlineRight />
+            </button>
+            <button
+              className="absolute top-5 right-4 text-[35px]"
+              onClick={handleClick}
+            >
               <AiOutlineClose />
             </button>
-            <div className="">
-              <p>가입하고 10% 쿠폰을 바로 사용해보세요.</p>
-              <Link href={"/"}>회원가입</Link>
+            <div className="text-center text-[16px] py-5 bg-slate-100">
+              <p className="pb-3">가입하고 10% 쿠폰을 바로 사용해보세요.</p>
+              <button className="p-1 border-solid border-2 border-gray-700 rounded">
+                회원가입
+              </button>
             </div>
-            <Link href={"/"}>신상품</Link>
-            <hr />
-            <Link href={"/"}>여성</Link>
-            <hr />
-            <Link href={"/"}>남성</Link>
-            <hr />
-            <Link href={"/"}>브랜드</Link>
+            <div className="py-3">
+              <AccordionButton
+                buttonText="신상품"
+                content={
+                  <div className="flex flex-col">
+                    <Link href={"/"}>여성</Link>
+                    <span className="text-[10px] text-slate-100">공백</span>
+                    <Link href={"/"}>남성</Link>
+                  </div>
+                }
+              />
+              <hr />
+              <AccordionButton
+                buttonText="여성"
+                content={
+                  <div className="flex flex-col">
+                    <Link href={"/"}>베스트</Link>
+                    <span className="text-[10px] text-slate-100">공백</span>
+                    <Link href={"/"}>의류</Link>
+                    <span className="text-[10px] text-slate-100">공백</span>
+                    <Link href={"/"}>악세서리</Link>
+                  </div>
+                }
+              />
+              <hr />
+              <AccordionButton
+                buttonText="남성"
+                content={
+                  <div className="flex flex-col">
+                    <Link href={"/"}>베스트</Link>
+                    <span className="text-[10px] text-slate-100">공백</span>
+                    <Link href={"/"}>의류</Link>
+                    <span className="text-[10px] text-slate-100">공백</span>
+                    <Link href={"/"}>악세서리</Link>
+                  </div>
+                }
+              />
+              <hr />
+              <AccordionButton
+                buttonText="브랜드"
+                content={
+                  <div className="flex flex-col">
+                    <Link href={"/"}>소개</Link>
+                    <span className="text-[10px] text-slate-100">공백</span>
+                    <Link href={"/"}>공지사항</Link>
+                  </div>
+                }
+              />
+            </div>
             <img src="/assets/menu_AD.jpg" alt="AD" />
             <Link href={"/"}>고객센터</Link>
             <Link href={"/"}>공지사항</Link>
