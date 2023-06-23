@@ -1,12 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
+import classes from "./Footer.module.css";
+
 export function Footer() {
   return (
-    <footer className="w-full mt-8">
+    <footer className={classes.footer}>
       <h2 className="text-3xl mx-10">KIYOMI</h2>
-      <nav className="flex flex-col items-center justify-center mt-4 tablet:flex-row tablet:justify-between ">
-        <ul className="flex space-x-3 mx-10 tablet:mb-3 tablet:text-sm mobile:text-sm mobile:mb-4">
+      <nav className={classes.navigation}>
+        <ul className={classes.infoList}>
           <li>
-            <a href="#" className="text-gray-500 hover:text-gray-700">
+            <a href="#" className={classes.infoLink}>
               회사 정보
             </a>
           </li>
@@ -14,7 +17,7 @@ export function Footer() {
             <span className="text-gray-500">|</span>
           </li>
           <li>
-            <a href="#" className="text-gray-500 hover:text-gray-700">
+            <a href="#" className={classes.infoLink}>
               이용 약관
             </a>
           </li>
@@ -22,7 +25,7 @@ export function Footer() {
             <span className="text-gray-500">|</span>
           </li>
           <li>
-            <a href="#" className="text-gray-500 hover:text-gray-700">
+            <a href="#" className={classes.infoLink}>
               개인정보 처리방침
             </a>
           </li>
@@ -30,13 +33,13 @@ export function Footer() {
             <span className="text-gray-500">|</span>
           </li>
           <li>
-            <a href="#" className="text-gray-500 hover:text-gray-700">
+            <a href="#" className={classes.infoLink}>
               이용안내
             </a>
           </li>
         </ul>
 
-        <div className="flex space-x-5 mx-10 mobile:mb-4">
+        <div className="flex space-x-5 m-3 ">
           <a href="#" aria-label="페이스북">
             <img src="/assets/img/footer/facebook.svg" alt="페이스북 로고" />
           </a>
