@@ -3,12 +3,7 @@ const nextConfig = {
   images: {
     domains: ["image.thehyundai.com"],
   },
-  rules: [
-    {
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    },
-  ],
+
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
