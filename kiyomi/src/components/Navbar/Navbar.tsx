@@ -4,6 +4,9 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineRight } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineShopping } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { AccordionButton } from "../Button/AccordionButton";
 
 export function Navbar() {
@@ -14,13 +17,26 @@ export function Navbar() {
   };
 
   return (
-    <div className="pl-[38px] py-[20px] flex items-center">
+    <div className="px-[38px] py-[20px] flex items-center">
       <span className="text-[30px] font-bold">KIYOMI</span>
-      <div className="lg:px-[50px] lg:space-x-8 md:px-[35px] md:space-x-6 sm:text-[0px] ">
-        <Link href={"/"}>신상품</Link>
-        <Link href={"/"}>여성</Link>
-        <Link href={"/"}>남성</Link>
-        <Link href={"/"}>브랜드</Link>
+      <div className="flex items-center">
+        <div className="lg:px-[50px] lg:space-x-8 md:px-[35px] md:space-x-4 md:text-[12px] sm:text-[0px]">
+          <Link href={"/"}>신상품</Link>
+          <Link href={"/femaleitem"}>여성</Link>
+          <Link href={"/"}>남성</Link>
+          <Link href={"/"}>브랜드</Link>
+        </div>
+        <div className="flex space-x-3 absolute right-0 text-[18px] font-bold pr-[38px] md:text-[14px] md:space-x-2 sm:pr-[60px]">
+          <button>
+            <AiOutlineUser />
+          </button>
+          <button>
+            <AiOutlineShopping />
+          </button>
+          <button>
+            <AiOutlineSearch />
+          </button>
+        </div>
         <button
           className="lg:text-[0px] md:text-[0px] sm:absolute top-[93px] right-[25px] text-[25px]"
           onClick={handleClick}
@@ -28,7 +44,7 @@ export function Navbar() {
           <GiHamburgerMenu />
         </button>
         {isMenuOpen && (
-          <div className="transition-all duration-300 ease-in-out absolute top-0 right-0 w-full h-screen px-5  bg-white z-10 text-black text-[20px] font-bold">
+          <div className="transition-all duration-300 ease-in-out absolute top-0 right-0 w-full h-full px-5 z-100 bg-white z-10 text-black text-[20px] font-bold">
             <button className="flex items-center py-6">
               <span className="">로그인</span>
               <AiOutlineRight />
