@@ -1,6 +1,7 @@
+import { getAuth } from "firebase/auth";
 import { initializeApp } from "@firebase/app";
+import { getStorage } from "@firebase/storage";
 import { getFirestore } from "@firebase/firestore";
-
 const {
   Next_API_KEY,
   Next_AUTH_DOMAIN,
@@ -21,6 +22,7 @@ const firebaseConfig = {
   measurementId: Next_MEASUREMENT_ID,
 };
 
+export const auth = getAuth();
+export const db = getFirestore();
+export const storage = getStorage();
 export const app = initializeApp(firebaseConfig);
-
-export const db = getFirestore(app);
