@@ -19,7 +19,7 @@ export function RegisterForm() {
     getValues,
   } = useForm<FormData>();
 
-  const [formData, setFormData] = useRecoilState(formDataAtom);
+  // const [formData, setFormData] = useRecoilState(formDataAtom);
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
