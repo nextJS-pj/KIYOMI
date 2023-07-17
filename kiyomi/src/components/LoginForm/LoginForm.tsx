@@ -2,11 +2,12 @@
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Image from "next/image";
+import classNames from "classnames";
 import Apple from "/public/assets/img/login/apple.svg";
 import Kakao from "/public/assets/img/login/kakao.svg";
 import Naver from "/public/assets/img/login/naver.svg";
-import { useEffect, useRef } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import classes from "../RegisterForm/RegisterForm.module.css";
 
 interface FormData {
   username: string;
@@ -16,27 +17,18 @@ interface FormData {
 }
 
 export function LoginForm() {
-  const inputRef = useRef<HTMLInputElement>(null);
   const {
     handleSubmit,
     register,
     formState: { errors },
-    getValues,
   } = useForm<FormData>();
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-    console.log(inputRef);
-  }, []);
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
   };
 
   return (
-    <div className="flex justify-center h-full max-w-full">
+    <div className="flex justify-center max-w-full">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-1/2 flex flex-col m-14 justify-center sm:w-full max-w-md"
@@ -50,14 +42,17 @@ export function LoginForm() {
             id="username"
             type="text"
             placeholder="아이디"
-            {...register("username", { required: "아이디를 입력하세요" })}
+            {...register("username", {
+              required: "아이디를 입력하세요",
+              pattern: {
+                value: /^[a-zA-Z0-9]{6,12}$/,
+                message: "영문 또는 영문, 숫자 조합 6~12자리를 입력하세요",
+              },
+            })}
             className={`w-full py-2 px-4 border ${
               errors.username ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
           />
-          {errors.username && (
-            <p className="text-red-500">{errors.username.message}</p>
-          )}
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="text-sm">
@@ -67,9 +62,17 @@ export function LoginForm() {
             id="password"
             type="password"
             placeholder="비밀번호"
-            {...register("password", { required: "비밀번호를 입력하세요" })}
+            {...register("password", {
+              required: "비밀번호를 입력하세요",
+              pattern: {
+                value:
+                  /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*])[a-zA-Z\d~!@#$%^&*]{8,15}$/,
+                message:
+                  "영문, 숫자, 특수문자(~!@#$%^&*) 조합 8~15자리로 입력하세요",
+              },
+            })}
             className={`w-full py-2 px-4 border ${
-              errors.password ? "border-red-500" : "border-gray-300"
+              errors.username ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
           />
           {errors.password && (
