@@ -1,5 +1,8 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
+import classes from "./RegisterForm.module.css";
+import { useRecoilState } from "recoil";
+import { formDataAtom } from "@/@recoil/formData";
 
 interface FormData {
   username: string;
@@ -15,6 +18,8 @@ export function RegisterForm() {
     formState: { errors },
     getValues,
   } = useForm<FormData>();
+
+  const [formData, setFormData] = useRecoilState(formDataAtom);
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
@@ -65,7 +70,7 @@ export function RegisterForm() {
               },
             })}
             className={`w-full py-2 px-4 border ${
-              errors.password ? "border-red-500" : "border-gray-300"
+              errors.username ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
           />
           {errors.password && (
@@ -87,7 +92,7 @@ export function RegisterForm() {
                 "비밀번호가 일치하지 않습니다",
             })}
             className={`w-full py-2 px-4 border ${
-              errors.confirmPassword ? "border-red-500" : "border-gray-300"
+              errors.username ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
           />
           {errors.confirmPassword && (
@@ -110,7 +115,7 @@ export function RegisterForm() {
               },
             })}
             className={`w-full py-2 px-4 border ${
-              errors.phone ? "border-red-500" : "border-gray-300"
+              errors.username ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
           />
           {errors.phone && (
@@ -118,10 +123,7 @@ export function RegisterForm() {
           )}
         </div>
 
-        <button
-          type="submit"
-          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-        >
+        <button type="submit" className={classes.button}>
           가입하기
         </button>
       </form>
