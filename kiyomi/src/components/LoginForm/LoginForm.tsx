@@ -2,12 +2,13 @@
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Image from "next/image";
-import classNames from "classnames";
+import { auth } from "@/firebase/firebase";
+import { useRouter } from "next/navigation";
 import Apple from "/public/assets/img/login/apple.svg";
 import Kakao from "/public/assets/img/login/kakao.svg";
 import Naver from "/public/assets/img/login/naver.svg";
 import { SubmitHandler, useForm } from "react-hook-form";
-import classes from "../RegisterForm/RegisterForm.module.css";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 interface FormData {
   username: string;
@@ -23,8 +24,23 @@ export function LoginForm() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      if (userCredential.user) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.error("Error signing in:", error);
+      alert("로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.");
+    }
   };
 
   return (
@@ -35,24 +51,27 @@ export function LoginForm() {
       >
         <h1 className="text-2xl font-bold mb-4 text-center">로그인</h1>
         <div className="mb-4">
-          <label htmlFor="username" className="text-sm">
-            아이디
+          <label htmlFor="email" className="text-sm">
+            이메일
           </label>
           <input
-            id="username"
+            id="email"
             type="text"
-            placeholder="아이디"
-            {...register("username", {
-              required: "아이디를 입력하세요",
+            placeholder="이메일"
+            {...register("email", {
+              required: "이메일을 입력하세요",
               pattern: {
-                value: /^[a-zA-Z0-9]{6,12}$/,
-                message: "영문 또는 영문, 숫자 조합 6~12자리를 입력하세요",
+                value: /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/,
+                message: "유효한 이메일 주소를 입력하세요",
               },
             })}
             className={`w-full py-2 px-4 border ${
-              errors.username ? "border-red-500" : "border-gray-300"
+              errors.email ? "border-red-500" : "border-gray-300"
             } rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
           />
+          {errors.email && (
+            <span className="text-red-500">{errors.email.message}</span>
+          )}
         </div>
         <div className="mb-4">
           <label htmlFor="password" className="text-sm">
