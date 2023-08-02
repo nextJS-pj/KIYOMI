@@ -1,8 +1,12 @@
 "use client";
-import { ShopItem } from "@/components/ShopForm/ShopForm";
+import { ShopForm } from "@/components/ShopForm/ShopForm";
 
-// 더미데이터 -------------------------------------------------------------------------------------
-const items = [
+interface Product {
+  imageUrl: string;
+  title: string;
+}
+
+const items: Product[] = [
   {
     imageUrl:
       "https://image.thehyundai.com/static/image/sect/hnm/cpnt/hnmmain2131250020230605122152.jpg",
@@ -84,12 +88,12 @@ const items = [
     title: "남성 트라우저",
   },
 ];
-// ---------------------------------------------------------------------------------------------------
 
 export default function FemaleItem() {
+
   return (
     <div>
-      <ShopItem pageTitle={"여성"} items={items} />
+      <ShopForm pageTitle={"여성"} items={items} />
     </div>
   );
 }
