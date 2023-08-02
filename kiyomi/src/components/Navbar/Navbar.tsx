@@ -19,7 +19,8 @@ export function Navbar() {
   return (
     <div>
       <div className="absolute space-x-1 right-0 text-[9px] pr-[38px] pt-[15px] md:text-[5px] md:pr-[25px]  sm:text-[0px]">
-        <Link href={"/"}>로그인</Link> |<Link href={"/"}>회원가입</Link>
+        <Link href={"/user/login"}>로그인</Link> |
+        <Link href={"/user/register"}>회원가입</Link>
         {/* <Link href={"/"}>마이페이지</Link> |<Link href={"/"}>로그아웃</Link> */}
       </div>
       <div className="px-[38px] py-[20px] flex items-center">
