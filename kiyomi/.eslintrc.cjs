@@ -44,5 +44,6 @@ module.exports = {
         components: ["Link"],
       },
     ],
+    "react/prop-types": "off",
   },
 };
