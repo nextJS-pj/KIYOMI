@@ -37,7 +37,7 @@ const BrandNavbar = () => (
           <div className="absolute w-full h-[300px] lg:h-[500px] hero-gradient rounded-tl-[140px] z-[0] -top-[30px]" />
 
           <img
-            src="/assets/img/brandMain.jpg"
+            src="/assets/img/brand/brandMain.jpg"
             alt="hero_cover"
             className="w-full sm:h-[500px] h-[350px] lg:h-[500px] object-cover rounded-tl-[140px] z-10 relative"
           />
