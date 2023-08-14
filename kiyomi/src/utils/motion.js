@@ -15,15 +15,15 @@ export const slideIn = (direction, type, delay, duration) => ({
   },
 });
 
-export const staggerContainer = (staggerChildren, delayChildren) => ({
+export const staggerContainer = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren,
-      delayChildren,
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
     },
   },
-});
+};
 
 export const textVariant = (delay) => ({
   hidden: {
@@ -81,6 +81,22 @@ export const fadeIn = (direction, type, delay, duration) => ({
       delay,
       duration,
       ease: "easeOut",
+    },
+  },
+});
+
+export const brandVariants = (direction) => ({
+  hidden: {
+    x: direction === "left" ? "-100%" : "100%",
+    rotate: 120,
+  },
+  show: {
+    x: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      duration: 1.8,
+      delay: 0.5,
     },
   },
 });
