@@ -1,5 +1,7 @@
+"use client";
+
 import { textContainer, textVariant2 } from "@/utils/motion";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface TypingTextProps {
   title: string;
@@ -7,7 +9,7 @@ interface TypingTextProps {
 }
 
 interface TitleTextProps {
-  title: string;
+  title: string | JSX.Element;
   textStyles?: string;
 }
 
@@ -32,10 +34,10 @@ export const TitleText: React.FC<TitleTextProps> = ({
   textStyles = "",
 }) => (
   <motion.h2
-    variants={textVariant2}
+    variants={textVariant2 as Variants}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] font-bold md:text-[64px] text-[40px] text-black ${textStyles}`}
+    className={`mt-[8px] font-bold sm:text-[24px] md:text-[30px] text-[40px]  text-black ${textStyles}`}
   >
     {title}
   </motion.h2>

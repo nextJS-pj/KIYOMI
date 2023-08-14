@@ -2,12 +2,12 @@ import { fadeIn } from "@/utils/motion";
 import { motion } from "framer-motion";
 
 interface BrandExploreCardProps {
-  id: number;
+  id: string;
   imgUrl: string;
   title: string;
   index: number;
-  active: number;
-  handleClick: (id: number) => void;
+  active: string;
+  handleClick: (id: string) => void;
   subTitle: string;
 }
 
@@ -30,7 +30,7 @@ const BrandExploreCard: React.FC<BrandExploreCardProps> = ({
     >
       <img
         src={imgUrl}
-        alt="planet-04"
+        alt="옷"
         className="absolute w-full h-full object-cover rounded-[24px]"
       />
       {active !== id ? (

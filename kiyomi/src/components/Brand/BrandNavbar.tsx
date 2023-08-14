@@ -38,7 +38,7 @@ const BrandNavbar = () => (
 
           <img
             src="/assets/img/brand/brandMain.jpg"
-            alt="hero_cover"
+            alt="브랜드 메인 이미지"
             className="w-full sm:h-[500px] h-[350px] lg:h-[500px] object-cover rounded-tl-[140px] z-10 relative"
           />
         </motion.div>
