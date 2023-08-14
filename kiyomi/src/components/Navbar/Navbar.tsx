@@ -30,7 +30,7 @@ export function Navbar() {
         <div className="flex items-center">
           <div className="lg:px-[50px] lg:space-x-8 md:px-[35px] md:space-x-4 md:text-[12px] sm:text-[0px]">
             <Link href={"/newitem"}>신상품</Link>
-            <Link href={"/femaleitem"}>여성</Link>
+            <Link href={"/femaleItem"}>여성</Link>
             <Link href={"/maleitem"}>남성</Link>
             <Link href={"/brand"}>브랜드</Link>
           </div>
